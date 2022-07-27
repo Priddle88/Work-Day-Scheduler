@@ -22,6 +22,9 @@ var newArray = timeAm.slice(1,10);
 console.log(newArray);
 
 function start() {
+
+    inputs.textContent = "";
+
     for (i = 4; i < newArray.length; i ++) {
         newArray[i] = Number(newArray[i]) + 12;
     }
@@ -86,7 +89,7 @@ start();
 
 function btnEvent(event) {
     event.preventDefault();
-    todoText = "";
+    
 
     
 
