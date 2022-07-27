@@ -31,27 +31,27 @@
     <div class="container">
       <!-- Timeblocks go here -->
       <div class="time-block">
-        <form  class="row justify-content-center schedule">
+        <form  method="POST" class="row justify-content-center schedule">
 
           <label for="todo" class="col-2 col-form-label hour"
           >9AM</label>
 
-          <input type="text" class="col-8 form-control description" id="what-to-do" />
+          <input type="text" class="col-8 form-control description textarea" name="what-to-do" id="what-to-do" />
 
-          <button type="submit" value="Submit" class="col-2 saveBtn">🔒</button>
+          <button class="col-2 saveBtn">🔒</button>
 
         </form>
       </div>
 
       <div class="time-block">
-        <form  class="row justify-content-center schedule">
+        <form  method="POST" class="row justify-content-center schedule">
 
           <label for="todo" class="col-2 col-form-label hour"
           >10AM</label>
 
-          <input type="text" name="what-to-do" class="col-8 form-control description" id="what-to-do" />
+          <input type="text" name="what-to-do" class="col-8 form-control description textarea" id="what-to-do" />
 
-          <button type="submit" value="Submit" class="col-2 saveBtn">🔒</button>
+          <button class="col-2 saveBtn">🔒</button>
 
         </form>
       </div>
@@ -64,7 +64,7 @@
 
           <input type="text" class="col-8 form-control description" id="what-to-do" />
 
-          <button type="submit" value="Submit" class="col-2 saveBtn">🔒</button>
+          <button class="col-2 saveBtn">🔒</button>
 
         </form>
       </div>
