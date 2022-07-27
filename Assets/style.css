@@ -83,3 +83,8 @@ textarea {
 .form-time {
   border: 2px solid black;
 }
+
+.removeIt {
+  display: none;
+}
+
