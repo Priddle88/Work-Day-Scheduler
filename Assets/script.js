@@ -1,33 +1,33 @@
+//Grabs the date of today in the format of Day, Month and the day of the month
 var dateToday = moment().format("dddd, MMMM Do");
-
+//Changes the text to the date of today
 $("#currentDay").text(dateToday);
 
+//List of variables for multiple reasons
 var time = $(".hour").text();
 var timeArray = [];
 var newTime;
 var inputs = document.querySelectorAll("input");
 var schedule = document.querySelector(".schedule");
-// var userInput = document.querySelector("#what-to-do").value;
 var whatToDo = document.querySelectorAll("#what-to-do");
 var btN = document.querySelectorAll(".saveBtn");
 var description = document.querySelectorAll(".description");
 var labels = document.querySelectorAll(".hour");
 var emptyA = [];
-
 var rightNow = moment();
-
 var newString = JSON.stringify(time);
-console.log(newString);
 var timeAm = newString.split(/AM|PM|"/);
 var newArray = timeAm.slice(1,10);
-console.log(newArray);
 
+//function to change the color of the sections depending on the time
+//Starts when page is loaded
 function start() {
-
+    //Loop to go through the numbers after noon and changing them to military time
     for (i = 4; i < newArray.length; i ++) {
         newArray[i] = Number(newArray[i]) + 12;
     }
-    
+
+    //Checks to see is the time on the schedule is before, after or during the present time
     for (i = 0; i < newArray.length; i++) {
         var newTime = moment().set('hour', newArray[i]);
         
@@ -44,6 +44,7 @@ function start() {
     
 }
 
+//function that is way longer than it should be. This add the inputs of the user to the local storage
 function inputToDo(event) {
 
     event.preventDefault();
@@ -71,6 +72,7 @@ function inputToDo(event) {
 
 }
 
+//Function that uses the local storage to keep the inputs of the user when the page is reloaded
 function resetList() {
     document.querySelector("#what-to-do-1").value = JSON.parse(localStorage.getItem("todo-1"));
     document.querySelector("#what-to-do-2").value = JSON.parse(localStorage.getItem("todo-2"));
@@ -82,66 +84,17 @@ function resetList() {
     document.querySelector("#what-to-do-8").value = JSON.parse(localStorage.getItem("todo-8"));
     document.querySelector("#what-to-do-9").value = JSON.parse(localStorage.getItem("todo-9"));
 }
+
+//Calling of the two functions for when the page loads
+//Resets the local storage
 resetList();
+//Mkaes sure the blocks are the right color depending on the current time
 start();
 
+//Loop to add an event listener to all the buttons on the page
 for (let index = 0; index < btN.length; index++) {
     btN[index].addEventListener("click", inputToDo);
 }
-
-// console.log(JSON.stringify(userInput) + " UserInput");
-
-// function storeInput(){
-    
-    
-//     localStorage.setItem("UserInput", userInput.value());
-//     console.log(`I was run ${userInput[0]}`);
-// };
-
-// function disItem() {
-//     for (let index = 0; index < userInput.length; index++) {
-        
-//         whatToDo = JSON.stringify(localStorage.getItem("UserInput"));
-//     }
-    
-// }
-
-
-
-// function btnEvent(event) {
-//     event.preventDefault();
-    
-
-//         var todoText = event.target.userInput.value.trim();
-
-//         emptyA.push(todoText);
-//         console.log(emptyA + " :Empty A");
-    
-//         // localStorage.setItem("UserInput", userInput.value);
-//         disItem();
-//         // userInput.textContent = localStorage.getItem("UserInput");
-//         console.log(`I was run ${JSON.stringify(todoText)}`);
-//         console.log("Value: " + userInput.value);
-
-//         // for (let index = 0; index < emptyA.length; index++) {
-//         //     inputs[index].classList.add("removeIt");
-//         //     var createNew = document.createElement("p");
-//         //     createNew.textContent = JSON.stringify(localStorage.getItem("UserInput"));
-//         //     labels[i].appendChild(createNew);
-//         // }
-        
-
-        
-//         inputs.value = "";
-// }
-
-// for (let index = 0; index < btN.length; index++) {
-//     btN[index].addEventListener("click", btnEvent);
-// }
-
-
-// console.log(newTime);
-
 
 
 
